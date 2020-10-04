@@ -14,7 +14,8 @@ namespace BikeServiceMenager.Data
         {
         }
 
-        public DbSet<Client>Clients { get; set; }
-        public DbSet<Bike>Bikes { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Bike> Bikes { get; set; }
+        public DbSet<ServiceOrder> ServiceOrders {get; set; }
     }
 }
