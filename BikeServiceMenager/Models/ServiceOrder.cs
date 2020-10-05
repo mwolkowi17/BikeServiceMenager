@@ -10,5 +10,6 @@ namespace BikeServiceMenager.Models
         public int ServiceOrderId { get; set; }
         public Bike BikeToService { get; set; }
         public Client BikeToServiceOwner { get; set; }
+        public DateTime DateOfOrderOpen { get; set; }
     }
 }

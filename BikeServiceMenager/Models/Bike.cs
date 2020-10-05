@@ -12,5 +12,12 @@ namespace BikeServiceMenager.Models
         public string Model { get; set; }
         public DateTime YearOfProduction { get; set; }
         public Client Owner { get; set; }
+        public BikeType Type { get; set; }
     }
+
+    public enum BikeType
+    {
+        mountain, tourist, bmx, road
+    }
+
 }
