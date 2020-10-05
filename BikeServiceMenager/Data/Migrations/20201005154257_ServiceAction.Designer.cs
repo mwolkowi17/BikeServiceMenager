@@ -4,14 +4,16 @@ using BikeServiceMenager.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BikeServiceMenager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201005154257_ServiceAction")]
+    partial class ServiceAction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,27 +69,6 @@ namespace BikeServiceMenager.Data.Migrations
                     b.HasKey("ClientId");
 
                     b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("BikeServiceMenager.Models.ServiceAction", b =>
-                {
-                    b.Property<int>("ServiceActionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ActionName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ManHour")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("ServiceActionId");
-
-                    b.ToTable("ServiceActions");
                 });
 
             modelBuilder.Entity("BikeServiceMenager.Models.ServiceOrder", b =>
