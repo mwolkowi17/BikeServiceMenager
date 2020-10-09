@@ -1,0 +1,63 @@
+﻿@model BikeServiceMenager.Models.BikeServiceViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Guest List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Bike Type
+                        </th>
+                        <th>
+                            Brand
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Production Year
+                        </th>
+                        <th>
+                            Owner
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.BikeList)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BikeId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearOfProduction.Year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Owner.Surname)
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
