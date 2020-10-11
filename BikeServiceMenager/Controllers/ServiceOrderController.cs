@@ -19,7 +19,10 @@ namespace BikeServiceMenager.Controllers
         }
         public IActionResult Index()
         {
-            var orders = _context.ServiceOrders.ToList();
+            var orders = _context.ServiceOrders
+                         .Include(n=>n.BikeToService)
+                         .Include(n=>n.BikeToServiceOwner)
+                         .ToList();
 
             var ordersToDisplay = new BikeServiceViewModel()
             {
