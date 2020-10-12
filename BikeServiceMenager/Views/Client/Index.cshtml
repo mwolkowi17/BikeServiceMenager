@@ -40,6 +40,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.YearOfBecameClient.Year)
                             </td>
+                            <td>
+                                <a asp-action="DeleteClient" asp-route-id="@item.ClientId">Delete</a>
+                            </td>
                            
                         </tr>
                     }

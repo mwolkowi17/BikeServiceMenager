@@ -28,5 +28,22 @@ namespace BikeServiceMenager.Controllers
 
             return View(clientsToDisplay);
         }
+
+        public IActionResult DeleteClient(int id)
+        {
+            var clientToDelete = _context.Clients
+                                 .Where(n => n.ClientId == id)
+                                 .FirstOrDefault();
+            try{
+                _context.Clients.Remove(clientToDelete);
+            }
+            catch
+            {
+                Console.WriteLine("Delte Error");
+            }
+
+            
+            return RedirectToAction (nameof(Index));
+        }
     }
 }
