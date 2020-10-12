@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BikeServiceMenager.Data;
 using BikeServiceMenager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BikeServiceMenager.Controllers
 {
@@ -33,13 +34,24 @@ namespace BikeServiceMenager.Controllers
         {
             var clientToDelete = _context.Clients
                                  .Where(n => n.ClientId == id)
+                                 
                                  .FirstOrDefault();
+            var bikesToDelete = _context.Bikes
+                                .Include(n => n.Owner)
+                                .Where(n => n.Owner.ClientId == id)
+                                .ToList();
+                                
             try{
                 _context.Clients.Remove(clientToDelete);
+                foreach(var n in bikesToDelete)
+                {
+                    _context.Bikes.Remove(n);
+                }
+                _context.SaveChanges();
             }
             catch
             {
-                Console.WriteLine("Delte Error");
+                Console.WriteLine("Delete Error");
             }
 
             
