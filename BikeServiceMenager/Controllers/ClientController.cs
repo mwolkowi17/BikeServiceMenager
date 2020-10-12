@@ -34,8 +34,8 @@ namespace BikeServiceMenager.Controllers
         {
             var clientToDelete = _context.Clients
                                  .Where(n => n.ClientId == id)
-                                 
                                  .FirstOrDefault();
+
             var bikesToDelete = _context.Bikes
                                 .Include(n => n.Owner)
                                 .Where(n => n.Owner.ClientId == id)
