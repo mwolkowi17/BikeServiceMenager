@@ -29,5 +29,14 @@ namespace BikeServiceMenager.Controllers
             };
             return View(bikesToDislplay);
         }
+
+        public IActionResult AddingBikeForm()
+        {
+            return View();
+        }
+        public IActionResult AddBike()
+        {
+            return View();
+        }
     }
 }
