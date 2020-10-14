@@ -4,8 +4,13 @@
 }
 
 <h1>Bike List</h1>
+
+
 <div class="container">
     <div class="row">
+        <a class="btn btn-primary" asp-action="AddingBikeForm" style="margin-bottom:15px"> Add New Bike</a>
+    </div>
+    <div class="row"
         <div class="col">
             <table class="table">
                 <thead>
@@ -34,26 +39,26 @@
                 <tbody>
                     @foreach (var item in Model.BikeList)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BikeId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Type)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Brand)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Model)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.YearOfProduction.Year)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Owner.Surname)
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BikeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Brand)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Model)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YearOfProduction.Year)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Owner.Surname)
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
