@@ -10,7 +10,7 @@ namespace BikeServiceMenager.Models
         public int BikeId { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-        public DateTime YearOfProduction { get; set; }
+        public string YearOfProduction { get; set; }
         public Client Owner { get; set; }
         public BikeType Type { get; set; }
     }

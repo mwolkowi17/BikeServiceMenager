@@ -34,9 +34,49 @@ namespace BikeServiceMenager.Controllers
         {
             return View();
         }
-        public IActionResult AddBike()
+        public IActionResult AddBike(string ownername, string ownersurname, string bikebrand, string bikemodel, string productionyear)
         {
-            return View();
+
+            var newclient = new Client()
+            {
+                Name = ownername,
+                Surname = ownersurname,
+                YearOfBecameClient=DateTime.Today
+            };
+
+            var newbike = new Bike()
+            {
+                Brand = bikebrand,
+                Model = bikemodel,
+                YearOfProduction = productionyear,
+                Owner = newclient
+
+            };
+
+            if (!_context.Clients.Contains(newclient))
+            {
+                try
+                {
+                    _context.Clients.Add(newclient);
+                    _context.SaveChanges();
+                }
+                catch 
+                {
+                    throw;
+                }
+            }
+           
+
+            try
+            {
+                _context.Bikes.Add(newbike);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
