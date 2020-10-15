@@ -78,5 +78,22 @@ namespace BikeServiceMenager.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult DeleteBike (int id)
+        {
+            var bikeToDelete = _context.Bikes
+                             .Where(n => n.BikeId == id)
+                             .FirstOrDefault();
+            try 
+            {
+                _context.Bikes.Remove(bikeToDelete);
+                _context.SaveChanges();
+            }
+            catch
+            {
+
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

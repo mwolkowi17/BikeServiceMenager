@@ -58,6 +58,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Owner.Surname)
                             </td>
+                            <td>
+                                <a asp-action="DeleteBike" asp-route-id="@item.BikeId">Delete Bike</a>
+                            </td>
                         </tr>
                     }
                 </tbody>
