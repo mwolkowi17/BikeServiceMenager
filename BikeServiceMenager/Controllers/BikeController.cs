@@ -95,5 +95,11 @@ namespace BikeServiceMenager.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult BikeServiceHistory(int id)
+        {
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
