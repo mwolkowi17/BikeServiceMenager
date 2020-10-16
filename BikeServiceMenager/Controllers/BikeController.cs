@@ -106,7 +106,7 @@ namespace BikeServiceMenager.Controllers
                 ServiceHistoryList = bikeServiceHistory
             };
 
-            return RedirectToAction(nameof(Index));
+            return View (bikeServiceHistoryToDisplay);
         }
     }
 }
