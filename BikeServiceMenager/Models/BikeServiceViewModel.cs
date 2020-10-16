@@ -10,6 +10,7 @@ namespace BikeServiceMenager.Models
         public List<Client> ClientList { get; set; }
         public List<Bike> BikeList { get; set; }
         public List<ServiceOrder> ServiceOrderList { get; set; }
+        public List<ServiceHistory> ServiceHistoryList { get; set; }
 
     }
 }

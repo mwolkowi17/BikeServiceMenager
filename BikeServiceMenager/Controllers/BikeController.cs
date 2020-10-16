@@ -98,6 +98,13 @@ namespace BikeServiceMenager.Controllers
 
         public IActionResult BikeServiceHistory(int id)
         {
+            var bikeServiceHistory = _context.ServiceHistories
+                                   .Where(n => n.ServiceActionHistory.ServiceActionId == id)
+                                   .ToList();
+            var bikeServiceHistoryToDisplay = new BikeServiceViewModel()
+            {
+                ServiceHistoryList = bikeServiceHistory
+            };
 
             return RedirectToAction(nameof(Index));
         }
