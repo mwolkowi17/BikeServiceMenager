@@ -18,5 +18,6 @@ namespace BikeServiceMenager.Data
         public DbSet<Bike> Bikes { get; set; }
         public DbSet<ServiceOrder> ServiceOrders {get; set; }
         public DbSet<ServiceAction> ServiceActions { get; set; }
+        public DbSet<ServiceHistory> ServiceHistories { get; set; }
     }
 }
