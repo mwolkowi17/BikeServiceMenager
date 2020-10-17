@@ -40,6 +40,9 @@ namespace BikeServiceMenager.Controllers
                                 .Include(n => n.Owner)
                                 .Where(n => n.Owner.ClientId == id)
                                 .ToList();
+
+            
+                                           
                                 
             try{
                 _context.Clients.Remove(clientToDelete);
