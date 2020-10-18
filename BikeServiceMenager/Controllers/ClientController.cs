@@ -40,7 +40,9 @@ namespace BikeServiceMenager.Controllers
                                 .Include(n => n.Owner)
                                 .Where(n => n.Owner.ClientId == id)
                                 .ToList();
-
+            var historyToDelete = _context.ServiceHistories
+                                 .Where(n => n.ServiceOrderHistory.BikeToServiceOwner.ClientId == id)
+                                 .ToList();
             
                                            
                                 
@@ -49,6 +51,10 @@ namespace BikeServiceMenager.Controllers
                 foreach(var n in bikesToDelete)
                 {
                     _context.Bikes.Remove(n);
+                }
+                foreach(var n in historyToDelete)
+                {
+                    _context.ServiceHistories.Remove(n);
                 }
                 _context.SaveChanges();
             }

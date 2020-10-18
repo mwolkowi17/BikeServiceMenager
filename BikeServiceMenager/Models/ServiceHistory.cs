@@ -8,6 +8,6 @@ namespace BikeServiceMenager.Models
     public class ServiceHistory
     {
         public int ServiceHistoryId { get; set; }
-        public ServiceAction ServiceActionHistory { get; set; }
+        public ServiceOrder ServiceOrderHistory { get; set; }
     }
 }

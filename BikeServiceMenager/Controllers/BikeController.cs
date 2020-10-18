@@ -99,7 +99,7 @@ namespace BikeServiceMenager.Controllers
         public IActionResult BikeServiceHistory(int id)
         {
             var bikeServiceHistory = _context.ServiceHistories
-                                   .Where(n => n.ServiceActionHistory.ServiceActionId == id)
+                                   .Where(n => n.ServiceOrderHistory.ServiceOrderId == id)
                                    .ToList();
             var bikeServiceHistoryToDisplay = new BikeServiceViewModel()
             {
