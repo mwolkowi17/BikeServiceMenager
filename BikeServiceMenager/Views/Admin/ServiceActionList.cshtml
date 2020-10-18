@@ -1,0 +1,52 @@
+﻿@model BikeServiceMenager.Models.BikeServiceViewModel
+@{
+    ViewData["Title"] = "ServicActionList";
+}
+
+<h1>Service Actions List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Action Name
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Man/Hour
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ServiceActionList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ServiceActionId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ManHour)
+                            </td>
+                            
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

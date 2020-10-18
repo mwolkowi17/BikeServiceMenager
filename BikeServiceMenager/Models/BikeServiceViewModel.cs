@@ -11,6 +11,7 @@ namespace BikeServiceMenager.Models
         public List<Bike> BikeList { get; set; }
         public List<ServiceOrder> ServiceOrderList { get; set; }
         public List<ServiceHistory> ServiceHistoryList { get; set; }
+        public List<ServiceAction> ServiceActionList { get; set; }
 
     }
 }
