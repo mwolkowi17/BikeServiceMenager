@@ -108,5 +108,35 @@ namespace BikeServiceMenager.Controllers
 
             return View (bikeServiceHistoryToDisplay);
         }
+
+        public IActionResult FindClient(string ownersurname)
+        {
+            var findedClietns = _context.Clients
+                               .Where(n => n.Surname == ownersurname)                             
+                               .ToList();
+
+            var findedClientsByName = _context.Clients
+                                      .Where(n => n.Name == ownersurname)
+                                      .ToList();
+
+            
+            var findedClientsToDisplay = new BikeServiceViewModel()
+            {  
+                ClientList = findedClietns
+            };
+
+            var findedClientsToDisplayByName = new BikeServiceViewModel()
+            {
+                ClientList = findedClientsByName
+            };
+            if (findedClietns.Count!=0) { 
+            return View(findedClientsToDisplay);
+            }
+            else
+            {
+                return View(findedClientsToDisplayByName);
+            }
+
+        }
     }
 }
