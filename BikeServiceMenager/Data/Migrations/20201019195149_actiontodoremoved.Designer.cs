@@ -4,14 +4,16 @@ using BikeServiceMenager.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BikeServiceMenager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201019195149_actiontodoremoved")]
+    partial class actiontodoremoved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,7 +87,12 @@ namespace BikeServiceMenager.Data.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ServiceOrderId")
+                        .HasColumnType("int");
+
                     b.HasKey("ServiceActionId");
+
+                    b.HasIndex("ServiceOrderId");
 
                     b.ToTable("ServiceActions");
                 });
@@ -114,24 +121,6 @@ namespace BikeServiceMenager.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ActionToDo1ServiceActionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ActionToDo2ServiceActionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ActionToDo3ServiceActionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ActionToDo4ServiceActionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ActionToDo5ServiceActionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AditionalNotes")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("BikeToServiceBikeId")
                         .HasColumnType("int");
 
@@ -142,16 +131,6 @@ namespace BikeServiceMenager.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("ServiceOrderId");
-
-                    b.HasIndex("ActionToDo1ServiceActionId");
-
-                    b.HasIndex("ActionToDo2ServiceActionId");
-
-                    b.HasIndex("ActionToDo3ServiceActionId");
-
-                    b.HasIndex("ActionToDo4ServiceActionId");
-
-                    b.HasIndex("ActionToDo5ServiceActionId");
 
                     b.HasIndex("BikeToServiceBikeId");
 
@@ -367,6 +346,13 @@ namespace BikeServiceMenager.Data.Migrations
                         .HasForeignKey("OwnerClientId");
                 });
 
+            modelBuilder.Entity("BikeServiceMenager.Models.ServiceAction", b =>
+                {
+                    b.HasOne("BikeServiceMenager.Models.ServiceOrder", null)
+                        .WithMany("ActionToDoList")
+                        .HasForeignKey("ServiceOrderId");
+                });
+
             modelBuilder.Entity("BikeServiceMenager.Models.ServiceHistory", b =>
                 {
                     b.HasOne("BikeServiceMenager.Models.ServiceOrder", "ServiceOrderHistory")
@@ -376,26 +362,6 @@ namespace BikeServiceMenager.Data.Migrations
 
             modelBuilder.Entity("BikeServiceMenager.Models.ServiceOrder", b =>
                 {
-                    b.HasOne("BikeServiceMenager.Models.ServiceAction", "ActionToDo1")
-                        .WithMany()
-                        .HasForeignKey("ActionToDo1ServiceActionId");
-
-                    b.HasOne("BikeServiceMenager.Models.ServiceAction", "ActionToDo2")
-                        .WithMany()
-                        .HasForeignKey("ActionToDo2ServiceActionId");
-
-                    b.HasOne("BikeServiceMenager.Models.ServiceAction", "ActionToDo3")
-                        .WithMany()
-                        .HasForeignKey("ActionToDo3ServiceActionId");
-
-                    b.HasOne("BikeServiceMenager.Models.ServiceAction", "ActionToDo4")
-                        .WithMany()
-                        .HasForeignKey("ActionToDo4ServiceActionId");
-
-                    b.HasOne("BikeServiceMenager.Models.ServiceAction", "ActionToDo5")
-                        .WithMany()
-                        .HasForeignKey("ActionToDo5ServiceActionId");
-
                     b.HasOne("BikeServiceMenager.Models.Bike", "BikeToService")
                         .WithMany()
                         .HasForeignKey("BikeToServiceBikeId");
