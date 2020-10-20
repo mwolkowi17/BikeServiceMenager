@@ -30,5 +30,10 @@ namespace BikeServiceMenager.Controllers
             };
             return View(ordersToDisplay);
         }
+
+        public IActionResult AddOrder()
+        {
+            return View();
+        }
     }
 }
