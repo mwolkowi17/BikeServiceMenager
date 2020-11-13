@@ -54,33 +54,32 @@ namespace BikeServiceMenager.Controllers
                 Brand = bikebrand,
                 Model = bikemodel,
                 YearOfProduction = productionyear,
-                Owner = newclient
+                //Owner = newclient
 
             };
 
             if (clientcontain.Count()==0)
             {
-                try
-                {
+                //try
+                //{
                     _context.Clients.Add(newclient);
-                    _context.SaveChanges();
-                }
-                catch 
-                {
-                    throw;
-                }
+                newbike.Owner = newclient;
+                _context.Bikes.Add(newbike);
+                _context.SaveChanges();
+                //}
+                //catch 
+                //{
+                 //  throw;
+                //}
             }
-           
-
-            try
+           else
             {
+                newbike.Owner = clientcontain.FirstOrDefault();
                 _context.Bikes.Add(newbike);
                 _context.SaveChanges();
             }
-            catch
-            {
-                throw;
-            }
+
+          
             return RedirectToAction(nameof(Index));
         }
 
