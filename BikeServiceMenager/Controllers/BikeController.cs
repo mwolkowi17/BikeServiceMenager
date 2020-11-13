@@ -44,6 +44,11 @@ namespace BikeServiceMenager.Controllers
                 YearOfBecameClient=DateTime.Today
             };
 
+            var clientcontain = _context.Clients
+                              .Where(n => n.Name == ownername)
+                              .Where(m => m.Surname == ownersurname)
+                              .ToList();
+
             var newbike = new Bike()
             {
                 Brand = bikebrand,
@@ -53,7 +58,7 @@ namespace BikeServiceMenager.Controllers
 
             };
 
-            if (!_context.Clients.Contains(newclient))
+            if (clientcontain.Count()==0)
             {
                 try
                 {
