@@ -39,32 +39,35 @@
                 <tbody>
                     @foreach (var item in Model.BikeList)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BikeId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Type)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Brand)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Model)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.YearOfProduction)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Owner.Surname)
-                            </td>
-                            <td>
-                                <a asp-action="DeleteBike" asp-route-id="@item.BikeId">Delete Bike</a>
-                            </td>
-                            <td>
-                                <a asp-action="BikeServiceHistory" asp-route-id="@item.BikeId">Service History</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BikeId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearOfProduction)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Owner.Name) @Html.DisplayFor(modelItem => item.Owner.Surname)
+                        </td>
+                        <td>
+                            <a asp-action="DetailsOfBike" asp-route-id="@item.BikeId"> Bike Details</a>
+                        </td>
+                        <td>
+                            <a asp-action="DeleteBike" asp-route-id="@item.BikeId">Delete Bike</a>
+                        </td>
+                        <td>
+                            <a asp-action="BikeServiceHistory" asp-route-id="@item.BikeId">Service History</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

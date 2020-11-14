@@ -142,5 +142,17 @@ namespace BikeServiceMenager.Controllers
             }
 
         }
+
+        public IActionResult DetailsOfBike(int id)
+        {
+            var BikeToDisplay = _context.Bikes
+                                .Where(n => n.BikeId == id)
+                                .Include(n=>n.Owner)
+                                .FirstOrDefault();
+
+            
+
+            return View(BikeToDisplay);
+        }
     }
 }
