@@ -31,6 +31,11 @@ namespace BikeServiceMenager.Controllers
             return View(ordersToDisplay);
         }
 
+        public IActionResult AddOrderFormDisplay()
+        {
+            return View();
+        }
+
         public IActionResult AddOrder(int bikeid, string additionalinfo, int serviceactionid1, int serviceactionid2, int serviceactionid3, int serviceactionid4, int serviceactionid5)
         {
             var bikeToService = _context.Bikes
