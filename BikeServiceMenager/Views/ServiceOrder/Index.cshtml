@@ -20,7 +20,10 @@
                             Bike
                         </th>
                         <th>
-                            Client
+                            Model
+                        </th>
+                        <th>
+                            Client 
                         </th>
 
                         <th>
@@ -33,20 +36,23 @@
                 <tbody>
                     @foreach (var item in Model.ServiceOrderList)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ServiceOrderId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BikeToService)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BikeToServiceOwner)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DateOfOrderOpen)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ServiceOrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BikeToService.Brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BikeToService.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Name) @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfOrderOpen.Year).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Month).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Day)
 
-                        </tr>
+</tr>
                     }
                 </tbody>
             </table>
