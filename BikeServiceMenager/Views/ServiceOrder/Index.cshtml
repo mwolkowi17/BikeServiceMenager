@@ -51,8 +51,11 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DateOfOrderOpen.Year).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Month).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Day)
-
-</tr>
+                        </td>
+                        <td>
+                            <a asp-action="" asp-route-id="@item.ServiceOrderId"> Order Details</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
