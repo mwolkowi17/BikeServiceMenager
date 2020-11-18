@@ -87,6 +87,13 @@ namespace BikeServiceMenager.Controllers
         {
             var OrderToDisplay = _context.ServiceOrders
                                  .Where(n => n.ServiceOrderId == id)
+                                 .Include(n=>n.BikeToService)
+                                 .Include(n=>n.BikeToServiceOwner)
+                                 .Include(n=>n.ActionToDo1)
+                                 .Include(n=>n.ActionToDo2)
+                                 .Include(n=>n.ActionToDo3)
+                                 .Include(n=>n.ActionToDo4)
+                                 .Include(n=>n.ActionToDo5)
                                  .FirstOrDefault();
 
             return View(OrderToDisplay);
