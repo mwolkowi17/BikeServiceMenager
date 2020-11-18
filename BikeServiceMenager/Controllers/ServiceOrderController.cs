@@ -82,5 +82,14 @@ namespace BikeServiceMenager.Controllers
             _context.SaveChanges();
             return View();
         }
+
+        public IActionResult GetOrderDetails(int id)
+        {
+            var OrderToDisplay = _context.ServiceOrders
+                                 .Where(n => n.ServiceOrderId == id)
+                                 .FirstOrDefault();
+
+            return View(OrderToDisplay);
+        }
     }
 }
