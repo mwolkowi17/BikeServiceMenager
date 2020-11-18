@@ -1,0 +1,73 @@
+﻿@model BikeServiceMenager.Models.ServiceOrder
+
+
+@{
+    ViewData["Title"] = "ServiceOrdesrsDetails";
+}
+
+<h1>Details</h1>
+
+<hr />
+<dl class="row">
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ServiceOrderId)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ServiceOrderId)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.BikeToService.Brand)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.BikeToService.Brand)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.BikeToServiceOwner.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.BikeToServiceOwner.Name)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.BikeToServiceOwner.Surname)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.BikeToServiceOwner.Surname)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ActionToDo1)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ActionToDo1)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ActionToDo2)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ActionToDo2)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ActionToDo3)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ActionToDo3)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ActionToDo4)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ActionToDo4)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ActionToDo5)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ActionToDo5)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.AditionalNotes)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AditionalNotes)
+    </dd>
+</dl>
