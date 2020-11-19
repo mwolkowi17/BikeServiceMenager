@@ -62,6 +62,9 @@
                         <td>
                             <a asp-action="GetOrderDetails" asp-route-id="@item.ServiceOrderId"> Order Details</a>
                         </td>
+                        <td>
+                            <a asp-action="DeleteServiceOrder" asp-route-id="@item.ServiceOrderId">Delete Order</a>
+                        </td>
                     </tr>
                     }
                 </tbody>

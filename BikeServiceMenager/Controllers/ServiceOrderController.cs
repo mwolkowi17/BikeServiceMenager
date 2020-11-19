@@ -99,5 +99,22 @@ namespace BikeServiceMenager.Controllers
 
             return View(OrderToDisplay);
         }
+
+        public IActionResult DeleteServiceOrder (int id)
+        {
+            var ServiceOrderToDelete = _context.ServiceOrders
+                                       .Where(n => n.ServiceOrderId == id)
+                                       .FirstOrDefault();
+            try
+            {
+                _context.ServiceOrders.Remove(ServiceOrderToDelete);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
