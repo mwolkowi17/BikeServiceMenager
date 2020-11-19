@@ -30,6 +30,9 @@
                             Order Date
                         </th>
                         
+                        <td>
+                            To be Ready
+                        </td>
 
 
                     </tr>
@@ -52,6 +55,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DateOfOrderOpen.Year).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Month).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Day)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateToBeReady.Year).@Html.DisplayFor(modelItem => item.DateToBeReady.Month).@Html.DisplayFor(modelItem => item.DateToBeReady.Day).
                         </td>
                         <td>
                             <a asp-action="GetOrderDetails" asp-route-id="@item.ServiceOrderId"> Order Details</a>

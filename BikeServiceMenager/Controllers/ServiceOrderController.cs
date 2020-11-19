@@ -70,6 +70,7 @@ namespace BikeServiceMenager.Controllers
                 BikeToService = bikeToService,
                 BikeToServiceOwner = bikeToServiceOwner,
                 DateOfOrderOpen = DateTime.Now.Date,
+                DateToBeReady = DateTime.Now.AddDays(1),
                 ActionToDo1 = serviceAction1,
                 ActionToDo2 = serviceAction2,
                 ActionToDo3 = serviceAction3,
