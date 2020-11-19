@@ -80,7 +80,7 @@ namespace BikeServiceMenager.Controllers
 
             _context.ServiceOrders.Add(newServiceOrder);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult GetOrderDetails(int id)

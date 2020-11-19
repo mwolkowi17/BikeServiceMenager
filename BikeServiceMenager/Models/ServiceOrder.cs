@@ -11,6 +11,7 @@ namespace BikeServiceMenager.Models
         public Bike BikeToService { get; set; }
         public Client BikeToServiceOwner { get; set; }
         public DateTime DateOfOrderOpen { get; set; }
+        public DateTime  DateToBeReady { get; set; }
         public ServiceAction ActionToDo1 { get; set; }
         public ServiceAction ActionToDo2 { get; set; }
         public ServiceAction ActionToDo3 { get; set; }
