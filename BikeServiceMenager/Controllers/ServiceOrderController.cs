@@ -70,6 +70,7 @@ namespace BikeServiceMenager.Controllers
                 BikeToService = bikeToService,
                 BikeToServiceOwner = bikeToServiceOwner,
                 DateOfOrderOpen = DateTime.Now.Date,
+                
                 DateToBeReady = DateTime.Now.AddDays(1),
                 ActionToDo1 = serviceAction1,
                 ActionToDo2 = serviceAction2,
@@ -78,6 +79,34 @@ namespace BikeServiceMenager.Controllers
                 ActionToDo5 = serviceAction5,
                 AditionalNotes = additionalinfo
             };
+
+            var noAction = _context.ServiceActions
+                          .Where(n => n.ServiceActionId == 4)
+                          .FirstOrDefault();
+            if (newServiceOrder.ActionToDo2 == null)
+            {
+                newServiceOrder.ActionToDo2 = noAction;
+            }
+            if (newServiceOrder.ActionToDo3 == null)
+            {
+                newServiceOrder.ActionToDo3 = noAction;
+            }
+            if (newServiceOrder.ActionToDo4 == null)
+            {
+                newServiceOrder.ActionToDo4 = noAction;
+            }
+            if (newServiceOrder.ActionToDo5 == null)
+            {
+                newServiceOrder.ActionToDo5 = noAction;
+            }
+            if ((newServiceOrder.ActionToDo1.ManHour + newServiceOrder.ActionToDo2.ManHour + newServiceOrder.ActionToDo3.ManHour + newServiceOrder.ActionToDo4.ManHour + newServiceOrder.ActionToDo5.ManHour) > 8)
+            {
+                newServiceOrder.DateToBeReady = DateTime.Now.AddDays(2);
+            }
+            else
+            {
+                newServiceOrder.DateToBeReady = DateTime.Now.AddDays(1);
+            }
 
             _context.ServiceOrders.Add(newServiceOrder);
             _context.SaveChanges();
