@@ -126,6 +126,30 @@ namespace BikeServiceMenager.Controllers
                                  .Include(n=>n.ActionToDo5)
                                  .FirstOrDefault();
 
+            var noAction = _context.ServiceActions
+                          .Where(n => n.ServiceActionId == 4)
+                          .FirstOrDefault();
+            if (OrderToDisplay.ActionToDo2 == null)
+            {
+                OrderToDisplay.ActionToDo2 = noAction;
+            }
+            if (OrderToDisplay.ActionToDo3 == null)
+            {
+                OrderToDisplay.ActionToDo3 = noAction;
+            }
+            if (OrderToDisplay.ActionToDo4 == null)
+            {
+                OrderToDisplay.ActionToDo4 = noAction;
+            }
+            if (OrderToDisplay.ActionToDo5 == null)
+            {
+                OrderToDisplay.ActionToDo5 = noAction;
+            }
+
+            var TotalAmountToPay = (OrderToDisplay.ActionToDo1.Price + OrderToDisplay.ActionToDo2.Price + OrderToDisplay.ActionToDo3.Price + OrderToDisplay.ActionToDo4.Price + OrderToDisplay.ActionToDo5.Price);
+
+            ViewBag.TotalAmountToDisplay = TotalAmountToPay;
+
             return View(OrderToDisplay);
         }
 
@@ -143,6 +167,8 @@ namespace BikeServiceMenager.Controllers
             {
                 throw;
             }
+
+            
             return RedirectToAction(nameof(Index));
         }
     }
