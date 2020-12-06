@@ -171,5 +171,19 @@ namespace BikeServiceMenager.Controllers
             
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult FindBike(string ownersurname)
+        {
+            var BikesToDisplaybyOwner = _context.Bikes
+                                 .Include(n => n.Owner)
+                                 .Where(n => n.Owner.Surname == ownersurname)
+                                 .ToList();
+
+            var bikesToDislplay = new BikeServiceViewModel()
+            {
+                BikeList = BikesToDisplaybyOwner
+            };
+            return View(bikesToDislplay);
+        }
     }
 }

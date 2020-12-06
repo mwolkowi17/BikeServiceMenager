@@ -1,24 +1,46 @@
-﻿@{
+﻿@model BikeServiceMenager.Models.BikeServiceViewModel
+@{
     ViewData["Title"] = "Add Order Form";
 }
 <h1>Add Order Form</h1>
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Find Bike</h5>
-                    <form asp-action="FindBike" autocomplete="off">
-                        <div class="form-group">
-                            <label for="name">Client Surname</label>
-                            <input type="text" class="form-control" name="ownersurname" aria-describedby="">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>                 
+                        <th>
+                            Brand
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        
 
-                        </div>
-                        <button type="submit" class="btn btn-primary">Find</button>
-                    </form>
-
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.BikeList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BikeId)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Brand)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Model)
+                            </td>
+                           
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
 
         </div>
@@ -55,10 +77,10 @@
                         </div>
                         <div class="form-group">
                             <label for="brand">Aditional Notes abuot order</label>
-                            
+
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="additionalinfo"></textarea>
                         </div>
-                        
+
 
 
                         <button type="submit" class="btn btn-primary">Submit</button>
