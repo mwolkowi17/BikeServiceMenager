@@ -157,16 +157,13 @@ namespace BikeServiceMenager.Controllers
         {
             var ServiceOrderToDelete = _context.ServiceOrders
                                        .Where(n => n.ServiceOrderId == id)
+                                       .Include(n=>n.BikeToService)
+                                       .Include(n=>n.BikeToServiceOwner)
                                        .FirstOrDefault();
-            try
-            {
+           
                 _context.ServiceOrders.Remove(ServiceOrderToDelete);
-                _context.SaveChanges();
-            }
-            catch
-            {
-                throw;
-            }
+                
+          
 
 
             var newServiceHistoryItem = new ServiceHistory()

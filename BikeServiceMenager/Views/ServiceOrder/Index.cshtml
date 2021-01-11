@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h1>Service Orders</h1>
 <div class="container">
     <div class="row">
@@ -23,13 +22,13 @@
                             Model
                         </th>
                         <th>
-                            Client 
+                            Client
                         </th>
 
                         <th>
                             Order Date
                         </th>
-                        
+
                         <td>
                             To be Ready
                         </td>
@@ -40,37 +39,35 @@
                 <tbody>
                     @foreach (var item in Model.ServiceOrderList)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ServiceOrderId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BikeToService.Brand)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BikeToService.Model)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Name) @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Surname)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateOfOrderOpen.Year).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Month).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Day)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateToBeReady.Year).@Html.DisplayFor(modelItem => item.DateToBeReady.Month).@Html.DisplayFor(modelItem => item.DateToBeReady.Day).
-                        </td>
-                        <td>
-                            <a asp-action="GetOrderDetails" asp-route-id="@item.ServiceOrderId"> Order Details</a>
-                        </td>
-                        <td>
-                            <a asp-action="DeleteServiceOrder" asp-route-id="@item.ServiceOrderId">Delete Order</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ServiceOrderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BikeToService.Brand)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BikeToService.Model)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Name) @Html.DisplayFor(modelItem => item.BikeToServiceOwner.Surname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateOfOrderOpen.Year).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Month).@Html.DisplayFor(modelItem => item.DateOfOrderOpen.Day)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateToBeReady.Year).@Html.DisplayFor(modelItem => item.DateToBeReady.Month).@Html.DisplayFor(modelItem => item.DateToBeReady.Day).
+                            </td>
+                            <td>
+                                <a asp-action="GetOrderDetails" asp-route-id="@item.ServiceOrderId"> Order Details</a>
+                            </td>
+                            <td>
+                                <a asp-action="DeleteServiceOrder" asp-route-id="@item.ServiceOrderId">Delete Order</a>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-

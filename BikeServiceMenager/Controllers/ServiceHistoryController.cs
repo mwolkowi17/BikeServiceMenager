@@ -20,6 +20,8 @@ namespace BikeServiceMenager.Controllers
         public IActionResult Index()
         {
             var historyOrders = _context.ServiceHistories
+                                        .Include(n=>n.ServiceOrderHistory.BikeToService)
+                                        
                                         .ToList();
             var historyOrdersToDisplay = new BikeServiceViewModel
             {

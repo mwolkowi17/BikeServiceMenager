@@ -1,0 +1,54 @@
+﻿@model BikeServiceMenager.Models.BikeServiceViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Service History</h1>
+<div class="container">
+   
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Bike
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Client
+                        </th>
+
+                        <th>
+                            Order Date
+                        </th>
+
+                        <td>
+                            To be Ready
+                        </td>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ServiceHistoryList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ServiceHistoryId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ServiceOrderHistory.BikeToService.Brand)
+                            </td>
+                           
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
