@@ -168,6 +168,15 @@ namespace BikeServiceMenager.Controllers
                 throw;
             }
 
+
+            var newServiceHistoryItem = new ServiceHistory()
+            {
+                ServiceOrderHistory = ServiceOrderToDelete
+            };
+
+            _context.ServiceHistories.Add(newServiceHistoryItem);
+            _context.SaveChanges();
+
             
             return RedirectToAction(nameof(Index));
         }
