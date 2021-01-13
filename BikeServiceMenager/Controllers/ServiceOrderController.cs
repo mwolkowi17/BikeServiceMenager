@@ -155,23 +155,31 @@ namespace BikeServiceMenager.Controllers
 
         public IActionResult DeleteServiceOrder (int id)
         {
-            var ServiceOrderToDelete = _context.ServiceOrders
+            var ServiceIncludeForeign = _context.ServiceOrders
+                                       .Include(n => n.BikeToService)
+                                       .Include(n => n.BikeToServiceOwner)
+                                       .Include(n => n.ActionToDo1)
+                                       .Include(n => n.ActionToDo2)
+                                       .Include(n => n.ActionToDo3)
+                                       .Include(n => n.ActionToDo4)
+                                       .Include(n => n.ActionToDo5)
+                                       .ToList();
+
+            var ServiceOrderToDelete = ServiceIncludeForeign
                                        .Where(n => n.ServiceOrderId == id)
-                                       .Include(n=>n.BikeToService)
-                                       .Include(n=>n.BikeToServiceOwner)
+                                       
                                        .FirstOrDefault();
-           
-                _context.ServiceOrders.Remove(ServiceOrderToDelete);
-                
-          
 
 
-            var newServiceHistoryItem = new ServiceHistory()
-            {
-                ServiceOrderHistory = ServiceOrderToDelete
-            };
 
+
+
+
+            ServiceHistory newServiceHistoryItem = new ServiceHistory() ;
+            newServiceHistoryItem.ServiceOrderHistory = new ServiceOrder();
+            newServiceHistoryItem.ServiceOrderHistory = ServiceOrderToDelete;
             _context.ServiceHistories.Add(newServiceHistoryItem);
+            _context.ServiceOrders.Remove(ServiceOrderToDelete);
             _context.SaveChanges();
 
             

@@ -9,5 +9,15 @@ namespace BikeServiceMenager.Models
     {
         public int ServiceHistoryId { get; set; }
         public ServiceOrder ServiceOrderHistory { get; set; }
+
+       public ServiceHistory()
+        {
+
+        }
+
+       public ServiceHistory(ServiceOrder order)
+        {
+            ServiceOrderHistory = order;
+        }
     }
 }
